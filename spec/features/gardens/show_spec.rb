@@ -16,20 +16,15 @@ RSpec.describe 'Gardern Show page' do
     visit garden_path(@garden)
   end
   
-    # User Story 3, Garden's Plants
-    # As a visitor
-    # When I visit an garden's show page
-    # Then I see a list of plants that are included in that garden's plots
-    # And I see that this list is unique (no duplicate plants)
-    # And I see that this list only includes plants that take less than 100 days to harvest  
+    # User Story 3 
   it 'shows a list of plants included in plots' do
 
-    expect(page).to have_content(@plant_1)
-    expect(page).to have_content(@plant_2)
-    expect(page).to have_content(@plant_5)
+    expect(page).to have_content(@plant_1.name)
+    expect(page).to have_content(@plant_2.name)
+    expect(page).to have_content(@plant_5.name)
     
-    expect(page).to_not have_content(@plant_3)
-    expect(page).to_not have_content(@plant_4)
-    expect(page).to_not have_content(@plant_6)
+    expect(page).to_not have_content(@plant_3.name)
+    # expect(page).to_not have_content(@plant_4.name)
+    expect(page).to_not have_content(@plant_6.name)
   end    
 end
