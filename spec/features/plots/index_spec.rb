@@ -26,10 +26,13 @@ RSpec.describe 'Plot Index' do
       
       expect(page).to have_content('Plot Index')
 
-      expect(page).to have_content(5, "Purple Beauty Sweet Bell Pepper")
-      expect(page).to have_content(10, "Dasiy")
-      expect(page).to have_content(50, "Orchard")
+      expect(page).to have_content(@plot_1.number)
+      expect(page).to have_content(@plot_2.number)
+      expect(page).to have_content(@plot_3.number)
 
+      expect(page).to have_content(@plant_1.name)
+      expect(page).to have_content(@plant_2.name)
+      expect(page).to have_content(@plant_3.name)
     end    
   end
 end
