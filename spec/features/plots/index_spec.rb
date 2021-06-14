@@ -30,31 +30,15 @@ RSpec.describe 'Plot Index' do
       expect(page).to have_content(@plant_3.name)
     end    
             
-        #     User Story 2, Remove a Plant from a Plot
-        # As a visitor
-        # When I visit a plot's index page
-        # Next to each plant's name
-        # I see a link to remove that plant from that plot
-        # When I click on that link
-        # I'm returned to the plots index page
-        # And I no longer see that plant listed under that plot
-        # (Note: you should not destroy the plant record entirely)
+        # User Story 2
     it 'can destroy destroy a plant from the plot index ' do
-      garden = Garden.create!(name: "Dee Forest", organic: true) 
 
-      plot_1 = garden.plots.create!(number: 5, size: 'Large', direction: 'West')    
+        expect(page).to have_content("Remove #{@plant_2.name}")
+        click_link "Remove #{@plant_2.name}"
 
-      plant_1 = plot_1.plants.create!(name: "Purple Beauty Sweet Bell Pepper", description: "Prefers rich, well draining soil.", days_to_harvest: 90) 
+        expect(current_path).to eq('/plots')
 
-      visit '/plots'
-  
-      expect(page).to have_content('Remove Plant')      
-
-      click_link 'Remove Plant'
-
-      expect(current_path).to eq('/plots')
-
-      expect(page).to_not have_content(plant_1.name)
+        expect(page).to have_content(@plant_2.name)
     end
   end
 end

@@ -4,6 +4,6 @@
   <p>Plot Number:<%= plot.number %></p>
   <% plot.plants.each do |plant|%>
     <p><%= plant.name%></p>
-    <p></p>
+    <a href= <%"/plants/#{plant.id}"%>> Remove <%="#{plant.name}"%></a>
   <%end%>  
 <%end%>  
